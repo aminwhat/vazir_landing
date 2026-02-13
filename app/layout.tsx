@@ -5,6 +5,7 @@ import "./globals.css";
 const vazir = Vazirmatn({ subsets: ["arabic", "latin"], display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vazir.io"),
   title: "وزیر - نرم‌افزار حسابداری و مدیریت مالی هوشمند با هوش مصنوعی",
   description:
     "وزیر: جامع‌ترین پلتفرم مالی و حسابداری تحت وب و دسکتاپ با تحلیل هوشمند داده‌ها توسط هوش مصنوعی، رابط کاربری زیبا و کاربران نامحدود.",
@@ -42,17 +43,26 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: ["/favicon.ico"],
+  },
+  themeColor: "#000000",
   openGraph: {
     type: "website",
     locale: "fa_IR",
-    url: "https://vazir.io",
+    url: "/",
     title: "وزیر - مشاور هوشمند مالی شما",
     description:
       "سیستم جامع حسابداری با هوش مصنوعی - تمام ماژول‌ها، کاربران نامحدود، قیمت استثنایی",
     siteName: "Vazir",
     images: [
       {
-        url: "https://vazir.io/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "وزیر - سیستم حسابداری با هوش مصنوعی",
@@ -63,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "وزیر - مشاور هوشمند مالی شما",
     description: "سیستم جامع حسابداری با هوش مصنوعی",
-    images: ["https://vazir.io/og-image.png"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://vazir.io",
@@ -85,8 +95,6 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <head>
-        {/* Favicons / theme-color / manifest could be added here as needed */}
-        <meta name="theme-color" content="#000000" />
         {/* Structured Data for SEO (JSON-LD) */}
         <script
           type="application/ld+json"
@@ -130,7 +138,6 @@ export default function RootLayout({
             }),
           }}
         />
-        <link rel="canonical" href="https://vazir.io" />
       </head>
       <body
         className={`${vazir.className} bg-black text-white antialiased overflow-x-hidden`}

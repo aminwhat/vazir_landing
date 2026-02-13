@@ -7,7 +7,13 @@ export const metadata: Metadata = {
   description:
     "سیاست حفظ حریم خصوصی وزیر: نحوه جمع‌آوری، استفاده، نگهداری و حفاظت از اطلاعات کاربران.",
   alternates: {
-    canonical: "https://vazir.io/privacy-policy",
+    canonical: "https://vazir.io/privacy",
+  },
+  openGraph: {
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    images: ["/og-image.png"],
   },
 };
 

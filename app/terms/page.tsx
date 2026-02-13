@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://vazir.io/terms",
   },
+  openGraph: {
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    images: ["/og-image.png"],
+  },
 };
 
 export default function TermsPage() {
