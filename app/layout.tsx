@@ -23,7 +23,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "وزیر",
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "Web, Windows, macOS",
+              description:
+                "پلتفرم مالی و حسابداری هوشمند برای دسکتاپ و وب با تحلیل مبتنی بر هوش مصنوعی.",
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                price: "Subscription",
+              },
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
