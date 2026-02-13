@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# وزیر (Vazir) - سیستم جامع حسابداری و مالی
 
-## Getting Started
+صفحه فرود زیبا و مدرن برای وزیر، یک پلتفرم مالی و حسابداری جامع با هوش مصنوعی.
 
-First, run the development server:
+## ویژگی‌ها
+
+- 🎨 **طراحی مدرن و زیبا**: رابط کاربری منحصر به فرد با الهام از معماری ایرانی
+- 🌐 **پشتیبانی کامل از فارسی**: RTL و فونت Vazirmatn
+- 📱 **ریسپانسیو**: بهینه‌شده برای تمام دستگاه‌ها
+- ⚡ **انیمیشن‌های روان**: استفاده از Framer Motion
+- 🔍 **بهینه‌سازی SEO**: متاتگ‌های کامل و Structured Data
+- 🚀 **Static Export**: بدون نیاز به سرور
+
+## شروع سریع
+
+### نصب وابستگی‌ها
+
+```bash
+npm install
+# یا
+yarn install
+# یا
+pnpm install
+```
+
+### اجرای محیط توسعه
 
 ```bash
 npm run dev
-# or
+# یا
 yarn dev
-# or
+# یا
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+برنامه را در مرورگر خود در آدرس [http://localhost:3000](http://localhost:3000) باز کنید.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ساخت برای Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# یا
+yarn build
+# یا
+pnpm build
+```
 
-## Learn More
+فایل‌های استاتیک در پوشه `out` ایجاد می‌شوند و می‌توانید آن‌ها را روی هر سرویس استاتیک (Vercel، Netlify، GitHub Pages و ...) دیپلوی کنید.
 
-To learn more about Next.js, take a look at the following resources:
+## ساختار پروژه
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+.
+├── app/
+│   ├── layout.tsx          # Layout اصلی با SEO metadata
+│   ├── page.tsx            # صفحه اصلی landing page
+│   └── globals.css         # استایل‌های global
+├── public/                 # فایل‌های استاتیک
+├── next.config.js          # تنظیمات Next.js
+├── tailwind.config.js      # تنظیمات Tailwind CSS
+├── tsconfig.json           # تنظیمات TypeScript
+└── package.json            # وابستگی‌ها
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## تنظیمات SEO
 
-## Deploy on Vercel
+برای بهبود SEO، موارد زیر را تنظیم کنید:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **آدرس دامنه**: در `app/layout.tsx` آدرس دامنه خود را جایگزین کنید
+2. **Google Verification**: کد تایید Google را در metadata اضافه کنید
+3. **تصاویر OG**: تصویر Open Graph را در `public/og-image.png` قرار دهید
+4. **Sitemap**: فایل sitemap.xml را به‌روز کنید
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## تکنولوژی‌ها
+
+- [Next.js 14](https://nextjs.org/) - React Framework
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
+- [Framer Motion](https://www.framer.com/motion/) - Animation Library
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [Vazirmatn Font](https://github.com/rastikerdar/vazirmatn) - فونت فارسی
+
+## سفارشی‌سازی
+
+### رنگ‌ها
+
+رنگ‌های اصلی در فایل `app/page.tsx` با استفاده از Tailwind classes تعریف شده‌اند. می‌توانید آن‌ها را تغییر دهید:
+
+- `from-amber-500 to-orange-600` - رنگ‌های اصلی برند
+- `from-indigo-500 to-purple-600` - رنگ‌های AI
+- `from-slate-900 to-slate-950` - رنگ‌های پس‌زمینه
+
+### محتوا
+
+تمام محتوای فارسی در فایل `app/page.tsx` قرار دارد و می‌توانید آن را به راحتی ویرایش کنید:
+
+- `accountingModules` - ماژول‌های حسابداری
+- `aiFeatures` - ویژگی‌های هوش مصنوعی
+- `pricingPlans` - پلن‌های قیمت‌گذاری
+
+## دیپلوی
+
+### Vercel (توصیه شده)
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+
+```bash
+npm run build
+# فایل‌های out را آپلود کنید
+```
+
+### سرور استاتیک
+
+پس از `npm run build`، پوشه `out` را روی هر سرور استاتیک قرار دهید.
+
+## مجوز
+
+این پروژه تحت مجوز MIT منتشر شده است.
+
+## پشتیبانی
+
+برای سوالات و پشتیبانی با ما تماس بگیرید.
