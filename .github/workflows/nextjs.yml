@@ -1,5 +1,3 @@
-# Deploy Next.js site to GitHub Pages (with pnpm support)
-
 name: Deploy Next.js site to Pages
 
 on:
@@ -24,43 +22,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Detect package manager (pnpm, yarn, npm)
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
-            echo "manager=pnpm" >> $GITHUB_OUTPUT
-            echo "command=install --frozen-lockfile" >> $GITHUB_OUTPUT
-            echo "runner=pnpm exec" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install --frozen-lockfile" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/package-lock.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
-
-      # Setup Node
+      # Setup Node + enable pnpm cache
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: "pnpm"
 
-      # Setup pnpm if needed
-      - name: Setup pnpm
-        if: steps.detect-package-manager.outputs.manager == 'pnpm'
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
+      # Enable Corepack (this installs pnpm automatically)
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       # Setup GitHub Pages
       - name: Setup Pages
@@ -72,19 +45,18 @@ jobs:
       - name: Restore Next.js cache
         uses: actions/cache@v4
         with:
-          path: |
-            .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      # Install dependencies
+      # Install deps
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: pnpm install --frozen-lockfile
 
-      # Build Next.js
+      # Build
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: pnpm next build
 
       # Upload static export
       - name: Upload artifact
