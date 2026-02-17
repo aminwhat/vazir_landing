@@ -315,7 +315,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 space-y-6"
+            className="flex-1 w-full space-y-6"
           >
             <div className="inline-flex p-3 bg-purple-500/10 w-fit rounded-lg border border-purple-500/20">
               <Brain className="w-8 h-8 text-purple-400" />
@@ -369,9 +369,9 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 relative"
+            className="relative flex-1 w-full max-w-2xl lg:max-w-none"
           >
-            <div className="relative h-[400px] bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl border border-white/10 overflow-hidden">
+            <div className="relative w-full h-[320px] md:h-[400px] bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl border border-white/10 overflow-hidden">
               {/* Grid background */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
@@ -412,7 +412,7 @@ export default function Home() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-12 right-12 px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-lg border border-purple-500/30 text-sm"
+                className="absolute top-4 right-4 md:top-12 md:right-12 px-3 py-2 md:px-4 bg-purple-500/20 backdrop-blur-sm rounded-lg border border-purple-500/30 text-xs md:text-sm"
               >
                 <TrendingUp className="w-4 h-4 inline ml-2 text-green-400" />
                 پیش‌بینی درآمد
@@ -426,7 +426,7 @@ export default function Home() {
                   ease: "easeInOut",
                   delay: 1,
                 }}
-                className="absolute bottom-12 left-12 px-4 py-2 bg-blue-500/20 backdrop-blur-sm rounded-lg border border-blue-500/30 text-sm"
+                className="absolute bottom-4 left-4 md:bottom-12 md:left-12 px-3 py-2 md:px-4 bg-blue-500/20 backdrop-blur-sm rounded-lg border border-blue-500/30 text-xs md:text-sm"
               >
                 <BarChart3 className="w-4 h-4 inline ml-2 text-blue-400" />
                 تحلیل خودکار
