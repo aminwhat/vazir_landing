@@ -98,6 +98,11 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="db50f878-d34d-4981-a934-dd491e1e9ec6"
+        ></script>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
           strategy="afterInteractive"
