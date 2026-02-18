@@ -7,6 +7,7 @@ const vazir = Vazirmatn({ subsets: ["arabic", "latin"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vazir.io"),
+  applicationName: "پلتفرم مالی وزیر",
   title: "وزیر - نرم‌افزار حسابداری و مدیریت مالی هوشمند با هوش مصنوعی",
   description:
     "وزیر: جامع‌ترین پلتفرم مالی و حسابداری تحت وب و دسکتاپ با تحلیل هوشمند داده‌ها توسط هوش مصنوعی، رابط کاربری زیبا و کاربران نامحدود.",
