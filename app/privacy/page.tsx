@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
-import SiteFooter from "@/components/layout/site-footer";
-import SiteNavbar from "@/components/layout/site-navbar";
+import LegalPageLayout from "@/components/layout/legal-page-layout";
 
 export const metadata: Metadata = {
   title: "حریم خصوصی | وزیر",
@@ -21,31 +20,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main
-      className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30"
-      dir="rtl"
+    <LegalPageLayout
+      icon={ShieldCheck}
+      badge="سیاست حفظ حریم خصوصی"
+      title="حریم خصوصی کاربران وزیر"
+      description="وزیر از داده‌های شما با رویکرد امنیت چندلایه، حداقل‌سازی دسترسی و پایش مستمر حفاظت می‌کند. با این حال امنیت نهایی یک مسئولیت مشترک است و کاربر نیز باید اصول امنیت دسترسی را رعایت کند."
     >
-      <SiteNavbar />
-
-      <section className="relative overflow-hidden px-4 pb-20 pt-20 md:pt-24">
-        <div className="absolute left-1/2 top-0 -z-10 h-[320px] w-[900px] -translate-x-1/2 rounded-full bg-blue-500/15 blur-[120px]" />
-        <div className="container mx-auto max-w-4xl">
-          <div className="mb-8 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm text-blue-300">
-            <ShieldCheck className="ml-2 h-4 w-4" />
-            سیاست حفظ حریم خصوصی
-          </div>
-
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
-            حریم خصوصی کاربران وزیر
-          </h1>
-          <p className="mb-10 text-base leading-8 text-neutral-400 md:text-lg">
-            وزیر از داده‌های شما با رویکرد امنیت چندلایه، حداقل‌سازی دسترسی و
-            پایش مستمر حفاظت می‌کند. با این حال امنیت نهایی یک مسئولیت مشترک
-            است و کاربر نیز باید اصول امنیت دسترسی را رعایت کند.
-          </p>
-
-          <article className="space-y-8 rounded-2xl border border-white/10 bg-neutral-900/60 p-6 md:p-8">
-            <section>
+      <section>
               <h2 className="mb-3 text-2xl font-semibold text-white">
                 ۱. اطلاعاتی که جمع‌آوری می‌کنیم
               </h2>
@@ -152,12 +133,6 @@ export default function PrivacyPolicyPage() {
                 <ArrowLeft className="h-4 w-4" />
               </Link>
             </section>
-          </article>
-
-          <p className="mt-6 text-sm text-neutral-500">آخرین به‌روزرسانی: ۱۴۰۴/۱۱/۲۴</p>
-        </div>
-      </section>
-      <SiteFooter />
-    </main>
+    </LegalPageLayout>
   );
 }

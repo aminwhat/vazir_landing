@@ -21,6 +21,7 @@ import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { BorderBeam } from "@/components/ui/border-beam";
 import SiteFooter from "@/components/layout/site-footer";
 import SiteNavbar from "@/components/layout/site-navbar";
+import ReadyToStartCta from "@/components/sections/ready-to-start-cta";
 import Link from "next/link";
 
 // --- داده‌های ماژول‌های حسابداری ---
@@ -566,44 +567,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* --- CTA SECTION --- */}
-      <section className="py-24 container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-950/30 to-purple-950/30 rounded-3xl p-12 border border-white/10 overflow-hidden"
-        >
-          <BorderBeam
-            size={300}
-            duration={15}
-            colorFrom="#3b82f6"
-            colorTo="#8b5cf6"
-          />
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">
-            آماده برای شروع هستید؟
-          </h2>
-          <p className="text-xl text-neutral-300 mb-8 relative z-10">
-            ۳۰ روز استفاده رایگان - بدون نیاز به کارت اعتباری
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <Link href="/contact">
-              <MagicCtaPill className="shadow-2xl">
-                <span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white lg:text-lg">
-                  شروع رایگان
-                </span>
-              </MagicCtaPill>
-            </Link>
-            <Link href="/contact">
-              <button className="px-10 py-4 rounded-full border border-white/20 hover:bg-white/5 transition font-bold text-lg">
-                تماس با فروش
-              </button>
-            </Link>
-          </div>
-        </motion.div>
-      </section>
+      <ReadyToStartCta subtitle="۳۰ روز استفاده رایگان - بدون نیاز به کارت اعتباری" />
 
       <SiteFooter />
 
