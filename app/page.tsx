@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import {
   Check,
@@ -15,12 +15,12 @@ import {
   TrendingUp,
   BarChart3,
   Users,
-  Menu,
-  X,
 } from "lucide-react";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { BorderBeam } from "@/components/ui/border-beam";
+import SiteFooter from "@/components/layout/site-footer";
+import SiteNavbar from "@/components/layout/site-navbar";
 import Link from "next/link";
 
 // --- داده‌های ماژول‌های حسابداری ---
@@ -70,109 +70,12 @@ function MagicCtaPill({
 }
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // اسکرول نرم به بخش‌ها
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
-  };
-
   return (
     <main
       className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30"
       dir="rtl"
     >
-      {/* --- HEADER / NAV --- */}
-      <nav className="fixed top-0 w-full z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tighter text-blue-500"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            وزیر
-          </Link>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-neutral-400">
-            <button
-              onClick={() => scrollToSection("features")}
-              className="hover:text-white transition"
-            >
-              امکانات
-            </button>
-            <Link href="/features" className="hover:text-white transition">
-              ماژول‌ها
-            </Link>
-            <button
-              onClick={() => scrollToSection("ai")}
-              className="hover:text-white transition"
-            >
-              هوش مصنوعی
-            </button>
-            <Link href="/pricing" className="hover:text-white transition">
-              قیمت‌گذاری
-            </Link>
-          </div>
-          <Link href="/contact" className="hidden md:block">
-            <button className="px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-neutral-200 transition">
-              شروع رایگان
-            </button>
-          </Link>
-          <button
-            type="button"
-            className="order-first md:order-none md:hidden inline-flex shrink-0 items-center justify-center w-10 h-10 me-1 rounded-lg border border-white/10 bg-white/5 text-white"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            aria-label={mobileMenuOpen ? "بستن منو" : "باز کردن منو"}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
-        </div>
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-white/10 bg-neutral-950/95 backdrop-blur-md px-4 py-4">
-            <div className="flex flex-col gap-3 text-sm font-medium text-neutral-300">
-              <button
-                onClick={() => scrollToSection("features")}
-                className="w-full text-right px-3 py-2 rounded-lg hover:bg-white/5"
-              >
-                امکانات
-              </button>
-              <Link
-                href="/features"
-                className="px-3 py-2 rounded-lg hover:bg-white/5"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                ماژول‌ها
-              </Link>
-              <button
-                onClick={() => scrollToSection("ai")}
-                className="w-full text-right px-3 py-2 rounded-lg hover:bg-white/5"
-              >
-                هوش مصنوعی
-              </button>
-              <Link
-                href="/pricing"
-                className="px-3 py-2 rounded-lg hover:bg-white/5"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                قیمت‌گذاری
-              </Link>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <button className="mt-2 w-full px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-neutral-200 transition">
-                  شروع رایگان
-                </button>
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
+      <SiteNavbar isHome />
 
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col items-center text-center px-4">
@@ -702,141 +605,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer className="py-16 border-t border-white/10 bg-neutral-950">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <div className="text-3xl font-bold text-blue-500 mb-4">وزیر</div>
-              <p className="text-neutral-400 mb-6 leading-relaxed">
-                سیستم جامع حسابداری و مالی با هوش مصنوعی
-                <br />
-                برای وب و دسکتاپ
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-neutral-700 transition"
-                >
-                  <span className="text-xl">📧</span>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-neutral-700 transition"
-                >
-                  <span className="text-xl">📱</span>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-neutral-700 transition"
-                >
-                  <span className="text-xl">💬</span>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4 text-white">محصول</h4>
-              <ul className="space-y-2 text-neutral-400">
-                <li>
-                  <Link
-                    href="/features"
-                    className="hover:text-white transition-colors"
-                  >
-                    امکانات
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/pricing"
-                    className="hover:text-white transition-colors"
-                  >
-                    قیمت‌گذاری
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/docs"
-                    className="hover:text-white transition-colors"
-                  >
-                    مستندات
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guide"
-                    className="hover:text-white transition-colors"
-                  >
-                    راهنما
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4 text-white">پشتیبانی</h4>
-              <ul className="space-y-2 text-neutral-400">
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-white transition-colors"
-                  >
-                    تماس با ما
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/faq"
-                    className="hover:text-white transition-colors"
-                  >
-                    سوالات متداول
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/tutorials"
-                    className="hover:text-white transition-colors"
-                  >
-                    آموزش‌ها
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/status"
-                    className="hover:text-white transition-colors"
-                  >
-                    وضعیت سرویس
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-neutral-500 text-sm">
-            <p>© ۱۴۰۴ وزیر. تمام حقوق محفوظ است.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <Link
-                href="/privacy"
-                className="hover:text-white transition-colors"
-              >
-                حریم خصوصی
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-white transition-colors"
-              >
-                شرایط استفاده
-              </Link>
-              <Link
-                href="/rules"
-                className="hover:text-white transition-colors"
-              >
-                قوانین
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* SEO Structured Data */}
       <script

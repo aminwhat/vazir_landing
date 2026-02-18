@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, FileText } from "lucide-react";
+import SiteFooter from "@/components/layout/site-footer";
+import SiteNavbar from "@/components/layout/site-navbar";
 
 export const metadata: Metadata = {
   title: "شرایط استفاده | وزیر",
@@ -23,23 +25,7 @@ export default function TermsPage() {
       className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30"
       dir="rtl"
     >
-      <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
-        <div className="container mx-auto flex h-16 items-center justify-between px-6">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tighter text-blue-500"
-          >
-            وزیر
-          </Link>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:bg-white/5"
-          >
-            بازگشت به صفحه اصلی
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
-        </div>
-      </nav>
+      <SiteNavbar />
 
       <section className="relative overflow-hidden px-4 pb-20 pt-20 md:pt-24">
         <div className="absolute left-1/2 top-0 -z-10 h-[320px] w-[900px] -translate-x-1/2 rounded-full bg-blue-500/15 blur-[120px]" />
@@ -188,6 +174,7 @@ export default function TermsPage() {
           <p className="mt-6 text-sm text-neutral-500">آخرین به‌روزرسانی: ۱۴۰۴/۱۱/۲۴</p>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

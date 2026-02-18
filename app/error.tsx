@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { AlertTriangle, ArrowLeft, Home, RefreshCw } from "lucide-react";
 import { ShineBorder } from "@/components/ui/shine-border";
+import SiteFooter from "@/components/layout/site-footer";
+import SiteNavbar from "@/components/layout/site-navbar";
 
 export default function Error({
   error,
@@ -22,22 +24,7 @@ export default function Error({
       className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30"
       dir="rtl"
     >
-      <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
-        <div className="container mx-auto flex h-16 items-center justify-between px-6">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tighter text-blue-500"
-          >
-            وزیر
-          </Link>
-          <Link
-            href="/"
-            className="text-sm font-medium text-neutral-300 transition hover:text-white"
-          >
-            بازگشت به خانه
-          </Link>
-        </div>
-      </nav>
+      <SiteNavbar />
 
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-28 text-center">
         <div className="absolute left-1/2 top-0 -z-10 h-[420px] w-[1000px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[120px]" />
@@ -117,6 +104,7 @@ export default function Error({
           </Link>
         </motion.div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

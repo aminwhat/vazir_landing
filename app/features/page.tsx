@@ -32,6 +32,8 @@ import {
 } from "lucide-react";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ShineBorder } from "@/components/ui/shine-border";
+import SiteFooter from "@/components/layout/site-footer";
+import SiteNavbar from "@/components/layout/site-navbar";
 
 // ─── انیمیشن‌های مشترک ───────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -249,39 +251,7 @@ export default function FeaturesPage() {
       className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30"
       dir="rtl"
     >
-      {/* ── NAVBAR ── */}
-      <nav className="fixed top-0 w-full z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tighter text-blue-500"
-          >
-            وزیر
-          </Link>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-neutral-400">
-            <Link href="/" className="hover:text-white transition">
-              خانه
-            </Link>
-            <Link
-              href="/features"
-              className="text-white transition border-b border-blue-500 pb-0.5"
-            >
-              ماژول‌ها
-            </Link>
-            <Link href="/pricing" className="hover:text-white transition">
-              قیمت‌گذاری
-            </Link>
-            <Link href="/contact" className="hover:text-white transition">
-              تماس
-            </Link>
-          </div>
-          <Link href="/contact">
-            <button className="px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-neutral-200 transition">
-              دریافت دمو
-            </button>
-          </Link>
-        </div>
-      </nav>
+      <SiteNavbar />
 
       {/* ── HERO ── */}
       <section className="relative pt-36 pb-20 md:pt-48 md:pb-28 overflow-hidden flex flex-col items-center text-center px-4">
@@ -887,29 +857,7 @@ export default function FeaturesPage() {
         </motion.div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="py-10 border-t border-white/10 bg-neutral-950">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-neutral-500 text-sm gap-4">
-          <p>© ۱۴۰۴ وزیر. تمام حقوق محفوظ است.</p>
-          <div className="flex gap-6">
-            <Link
-              href="/privacy"
-              className="hover:text-white transition-colors"
-            >
-              حریم خصوصی
-            </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              شرایط استفاده
-            </Link>
-            <Link
-              href="/contact"
-              className="hover:text-white transition-colors"
-            >
-              تماس با ما
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
